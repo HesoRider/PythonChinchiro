@@ -1,3 +1,6 @@
+"""
+Copyright (C) 2022 ヘソライダー All Rights Reserved.
+"""
 import random, tkinter
 
 root = tkinter.Tk()
@@ -15,10 +18,12 @@ dices = [
 
 canvas = tkinter.Canvas(root, width=900, height=600)
 
+# さいころを振る
 def play():
     numbers = [random.randint(0, 5), random.randint(0, 5), random.randint(0, 5)]
     for i in range(0, len(numbers)): canvas.create_image(300*i+150, 300, image=dices[numbers[i]])
     numbers.sort()
+    # 役がある目だけ表示
     if numbers == [3, 4, 5]: label["text"] = "シゴロ, 倍付け"
     elif numbers[0] == numbers[1] == numbers[2]:
         if numbers[0] == 0: label["text"] = "ピンゾロ, 5倍付け"
